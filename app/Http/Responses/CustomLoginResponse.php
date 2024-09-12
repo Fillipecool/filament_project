@@ -6,8 +6,9 @@ use Filament\Http\Responses\Auth\Contracts\LoginResponse as FilamentLoginRespons
 
 class CustomLoginResponse implements FilamentLoginResponse
 {
+    
     public function toResponse($request)
     {
-        return redirect('/contract');
+        return redirect('/contracts'); 
     }
 }
