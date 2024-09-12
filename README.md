@@ -1,66 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projeto Laravel com Autenticação e Redirecionamento por Empresa
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este projeto é uma aplicação web desenvolvida em Laravel com o uso de [Filament 3.x](https://filamentphp.com/) como ferramenta de administração e o PostgreSQL como banco de dados. O principal objetivo do projeto é permitir que clientes façam login em uma página que exibe todas as empresas disponíveis para eles. Após selecionar a empresa, o cliente é redirecionado para o dashboard correspondente.
 
-## About Laravel
+## Funcionalidades
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Tela de Login Personalizada:** Autenticação de clientes com visualização de todas as empresas disponíveis.
+- **Redirecionamento por Empresa:** Após a autenticação, o cliente escolhe uma empresa e é redirecionado para o dashboard específico da empresa selecionada.
+- **Painel Administrativo com Filament:** Interface de administração moderna e personalizável utilizando o Filament 3.x.
+- **Banco de Dados PostgreSQL:** Utilização do PostgreSQL para armazenamento de dados de clientes, empresas, e registros de autenticação.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tecnologias Utilizadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **[Laravel](https://laravel.com/) (Latest):** Framework PHP para construção de aplicações web robustas e escaláveis.
+- **[Filament 3.x](https://filamentphp.com/):** Ferramenta de administração para Laravel.
+- **[PostgreSQL](https://www.postgresql.org/):** Banco de dados relacional utilizado para persistência de dados.
 
-## Learning Laravel
+## Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- [PHP 8.x](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
+- [Node.js](https://nodejs.org/) e [NPM](https://www.npmjs.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/) (opcional, para ambiente de desenvolvimento com containers)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalação
 
-## Laravel Sponsors
+Siga os passos abaixo para configurar o projeto em sua máquina local:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. **Clone o repositório:**
 
-### Premium Partners
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+Instale as dependências do Composer:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+bash
+Copiar código
+composer install
+Instale as dependências do NPM:
 
-## Code of Conduct
+bash
+Copiar código
+npm install
+npm run build
+Configure o arquivo .env:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Copie o arquivo .env.example para .env e configure as variáveis de ambiente, especialmente as informações de banco de dados PostgreSQL.
 
-## Security Vulnerabilities
+bash
+Copiar código
+cp .env.example .env
+Gere a chave da aplicação:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+bash
+Copiar código
+php artisan key:generate
+Execute as migrações e seeders:
 
-## License
+Certifique-se de que o PostgreSQL esteja rodando e execute:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+bash
+Copiar código
+php artisan migrate --seed
+Inicie o servidor de desenvolvimento:
+
+bash
+Copiar código
+php artisan serve
+A aplicação estará disponível em http://localhost:8000.
+
+-> Siga documentação do filamentphp / laravel
+
+
+
+### Personalizações que você pode considerar
+
+1. **Adicionar Imagens ou GIFs**: Mostrar capturas de tela da tela de login, do processo de seleção de empresa e do dashboard.
+2. **Informações de Configuração Avançada**: Incluir detalhes sobre autenticação personalizada, middlewares utilizados, e outras configurações específicas.
+3. **FAQ ou Troubleshooting**: Adicionar uma seção para perguntas frequentes ou soluções de problemas comuns.
+4. **Links Úteis**: Incluir links para a documentação do Laravel, Filament, ou tutoriais relacionados.
+
+Sinta-se à vontade para ajustar este exemplo conforme necessário para melhor atender aos detalhes específicos do seu projeto.
